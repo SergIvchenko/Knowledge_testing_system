@@ -30,6 +30,8 @@ Sparky.task("clean", () => Sparky.src("./dist").clean("dist/"));
 Sparky.task("watch-assets", () => Sparky.watch("./assets", { base: "./src" }).dest("./dist"));
 Sparky.task("copy-assets", () => Sparky.src("./assets", { base: "./src" }).dest("./dist"));
 Sparky.task("copy-data", () => Sparky.src("./data/Tests.json", { base: "./src" }).dest("./dist"));
+Sparky.task("copy-bootstrap", () => Sparky.src("./bootstrap/dist/css/bootstrap.css", { base: "./node_modules"}).dest("./dist"));
+Sparky.task("copy-bootstrapmin", () => Sparky.src("./bootstrap/dist/css/bootstrap.min.css", { base: "./node_modules"}).dest("./dist"));
 
 
 Sparky.task("config", () => {
@@ -84,11 +86,11 @@ Sparky.task("config", () => {
     }
 });
 
-Sparky.task("default", ["clean", "copy-data",/*"watch-assets",*/ "config"], () => {
+Sparky.task("default", ["clean", "copy-data", "copy-bootstrapmin",/*"watch-assets",*/ "config"], () => {
     return fuse.run();
 });
 
-Sparky.task("dist", [ "clean", "set-prod", "config"], () => {
+Sparky.task("dist", [ "clean", "copy-data", "copy-bootstrapmin", "set-prod", "config"], () => {
     return fuse.run();
 });
 

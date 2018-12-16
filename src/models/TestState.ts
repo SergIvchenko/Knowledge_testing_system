@@ -167,6 +167,7 @@ private  _timeofend:Date;
 
         this._timeofstart=_start;
         this._timeofend=_end;
+        this._refresh();
 
         this._handletimer=setInterval(() => { this._refresh(); }, 1000);
 
