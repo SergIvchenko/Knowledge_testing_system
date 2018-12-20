@@ -39,7 +39,7 @@ Sparky.task("config", () => {
         target: "browser@es5",
         homeDir: "./src",
         output: "dist/$name.js",
-        //hash: isProduction,
+        hash: isProduction,
         sourceMaps: !isProduction,
 //        alias: { '@src':'~/' , '@components':'~/components/','@models':'~/models/','@data':'~/data/'},
         useTypescriptCompiler: true,

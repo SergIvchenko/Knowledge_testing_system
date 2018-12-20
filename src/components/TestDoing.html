@@ -1,22 +1,23 @@
-<div>
-    <h1>{{title}} <p  v-if="cur_answer"> >>> {{cur_answer}}</p>  </h1>
+<div class="text-center">
+    <h1 class="text-center">{{title}}</h1>
     <br>
-    <h2>{{question_num}}/{{question_cnt}} {{question}}</h2>
-    <br>
-    &nbsp;&nbsp;&nbsp;
+    <h2 class="text-center">{{question_num}}/{{question_cnt}} {{question}}</h2>
+    <p  class="h5" v-if="cur_answer"> Your answer: {{cur_answer}}</p>
+    <div class="h6 m-2 b-block">
+
     {{teststate.TimeLeftString}}
-    &nbsp;&nbsp;&nbsp;
-    {{teststate.TestIsRunning}}
-    <br>
 
-    <table>           
+    <!--{{teststate.TestIsRunning}}-->
+    </div>
+
+    <table class="table">
         <tr v-for="item in answers"  v-bind:key="item.id" @click="selectAnswer(item)"
-        :class="{'good':(item.id==good_answ),'selected':(item.id==sel_answ)}"
+        :class="{'text-success':(item.id==good_answ),'font-weight-bold':(item.id==sel_answ)}"
         >
-            <td>{{item.id}}</td>
-            <td>{{item.answer}}</td>
+            <td class="pointer">{{item.id}}</td>
+            <td class="pointer">{{item.answer}}</td>
 
-            <!--
+            <!--3
             <td><button @click="settest(item)">TEST</button></td>
             -->
         </tr>
@@ -26,16 +27,16 @@
 
     <br>
 
-<div class="upra">
-    <button @click="prev()" :disabled="(question_num==1)">Previous</button>
-    &nbsp;&nbsp;&nbsp;
-    <button @click="next()"  :disabled="(question_num==question_cnt)||(!!!cur_answer)">Next</button>
-    &nbsp;&nbsp;&nbsp;
-    <button @click="cancel()" >Cancel</button>
-    &nbsp;&nbsp;&nbsp;
-    <button @click="ToResultsPage()" :disabled="!enable2result">Jump to Result</button>
-    &nbsp;&nbsp;&nbsp;
-    <button @click="setTO2_10s()" :disabled="!testisrunning">Set Remain Time to 10s</button>
+<div class="m-2 align-self-center">
+    <button @click="prev()" :disabled="(question_num==1)" class="btn btn-outline-secondary m-2 shadow">Previous</button>
+
+    <button @click="next()"  :disabled="(question_num==question_cnt)||(!!!cur_answer)" class="btn btn-outline-secondary m-2 shadow">Next</button>
+
+    <button @click="cancel()" class="btn btn-outline-secondary m-2 shadow">Cancel</button>
+
+    <button @click="ToResultsPage()" :disabled="!enable2result" class="btn btn-outline-secondary m-2 shadow">Jump to Result</button>
+
+    <button @click="setTO2_10s()" :disabled="!testisrunning" class="btn btn-outline-secondary m-2 shadow">Set Remain Time to 10s</button>
 </div>
 
 

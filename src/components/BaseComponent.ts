@@ -38,7 +38,14 @@ export default class BaseComponent extends Vue
     public settest(test:TestRecord):void  { this.teststate.CurrentTest=test; }
 
     public start():void{  this.teststate.StartTest(); }
-    public cancel():void{  this.teststate.CancelTest(); }
+    public cancel():void{
+        if (confirm('Cancel? You will lose all results of test.')) {
+            this.teststate.CancelTest();
+        }
+    }
+    public mainpg():void{
+        this.teststate.CancelTest();
+    }
 
     public prev():void{ this.teststate.Prev();}
     public next():void{ this.teststate.Next();}

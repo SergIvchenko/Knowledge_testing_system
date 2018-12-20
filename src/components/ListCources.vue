@@ -1,8 +1,8 @@
-<template src="./ListCources.html">
+<template src="./TestList.html">
 </template>
 
 
 <script lang="ts">
-import ListCources from './ListCources';
-export default ListCources;
+import TestList from './TestList';
+export default TestList;
 </script>

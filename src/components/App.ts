@@ -3,13 +3,13 @@ import {Component,Prop,Watch,Provide, Inject} from "vue-property-decorator";
 import Axios,{ AxiosStatic, AxiosRequestConfig} from "axios";
 
 import  {Testes,TestRecord,Question,Answer,TestState} from "../models";
-import {ListCources,TestStart,TestDoing,TestResults} from "../components";
+import {TestList,TestStart,TestDoing,TestResults} from "../components";
 
 
 
 @Component({
 
-components:{ ListCources, TestStart, TestDoing,TestResults },
+components:{ ListCources: TestList, TestStart, TestDoing,TestResults },
 
 data()
 {

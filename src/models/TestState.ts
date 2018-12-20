@@ -84,7 +84,7 @@ private  _timeofend:Date;
     public get Questions_Cnt() : number 
     {
         if (this._CurrentTest==null)    return  0;
-        if (this._CurrentQuestion==0)   return  0;
+        //if (this._CurrentQuestion==0)   return  0;
         let _rez:number=this._CurrentTest.questions.length;
         return  _rez; 
     }
@@ -199,7 +199,7 @@ private  _timeofend:Date;
 
     private get _TimeLeftString() : string 
     {
-        if (!this.TestIsRunning)    return 'stopping'; 
+        if (!this.TestIsRunning)    return 'Time is over!';
         let _now=new Date();
         let _diff:number=this._timeofend-_now;
         var _tdiff=new Date(_diff);

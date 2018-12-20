@@ -1,21 +1,32 @@
 <div>
-    <h1>Results</h1>
+    <h1 class="text-center">Results</h1>
 
-    <table>
+    <table class="table table-responsive">
+
+        <p class="text-center">{{teststate.TimeLeftString}}</p>
+        <p class="text-center font-weight-bold" v-if="stats.correct">Congratulations! You have passed this test!</p>
+        <p class="text-center font-weight-bold" v-if="!stats.correct">Unfortunately you haven't passed this test. Try another time.</p>
+        <p class="text-center">Your result is {{stats.percent}}%! {{stats.right}} correct answers from {{stats.total}} total answers.</p>
+        <tr>
+            <td>Number</td>
+            <td>Question</td>
+            <td>Answer</td>
+            <td>Correct answer</td>
+        </tr>
         <tr v-for="item in testresults" v-bind:key="item.id">
             <td>{{item.id}}</td>
             <td>{{item.question}}</td>
             <td>{{item.answer_good}}</td>
-            <td :class="{ 'bad': !item.IsRight}">{{item.answer_user}}</td>
+            <td :class="{ 'bg-danger': !item.IsRight}">{{item.answer_user}}</td>
         </tr>
     </table>
 
 
-    <div class="upra">
+    <div class="text-center">
         &nbsp;&nbsp;&nbsp;
-        <button @click="Back2Test()" :disabled="!testisrunning">Back to Test</button>
+        <button @click="Back2Test()" :disabled="!testisrunning" class="btn btn-outline-secondary shadow">Back to Test</button>
         &nbsp;&nbsp;&nbsp;
-        <button @click="cancel()">Main Page</button>
+        <button @click="mainpg()" class="btn btn-outline-secondary shadow">Main Page</button>
     </div>
 
 

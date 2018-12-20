@@ -1,0 +1,23 @@
+<div>
+    <h2 class="text-center">List of Courses</h2>
+    <form class="form-inline m-2 text-center w-auto">
+        <input class="form-control m-2" type="search" placeholder="Search" v-model="checker" aria-label="Search">
+    </form>
+
+    <table class="table col-sm-12">
+        <tr v-for="item in goga" v-bind:key="item.id" class="table align-self-center m-0">
+            <td class="m-0">{{item.id}}</td>
+            <td class="m-0">{{item.title}}</td>
+            <td style="text-align: right;" class="m-0">
+                &nbsp;&nbsp;
+                {{item.questions.length}}
+            </td>
+            <td class="m-0">
+                &nbsp;&nbsp;
+                <button @click="settest(item)" class="btn btn-outline-secondary shadow">
+                    Go
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

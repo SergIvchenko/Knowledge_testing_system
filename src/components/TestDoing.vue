@@ -8,8 +8,8 @@ import TestDoing from './TestDoing';
 export default TestDoing;
 </script>
 
-
-<style scoped>
+<!--
+<style>
   tr:hover{ background-color: antiquewhite; }
   tr.good{ color: cadetblue;}
   tr.selected>td:first-child{  color: brown }
@@ -21,3 +21,4 @@ export default TestDoing;
 div.upra { display: flex;}
 
 </style>
+-->

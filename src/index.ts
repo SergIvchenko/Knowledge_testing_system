@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from './components/App.vue';
 import { Testes,TestState } from './models';
-
+import './own-styles.css'
 
 
 
